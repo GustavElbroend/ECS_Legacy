@@ -9,8 +9,8 @@ namespace ECS_DesignedForTestability
     public class ECS
     {
         private int _threshold;
-        public ITempSensor _tempSensor;
-        public  IHeater _heater;
+        public ITempSensor _tempSensor { private get; set; }
+        public  IHeater _heater { private get; set; }
 
         public ECS(int thr)
         {
