@@ -9,14 +9,14 @@ namespace ECS_DesignedForTestability
     public class ECS
     {
         private int _threshold;
-        private readonly TempSensor _tempSensor;
-        private readonly Heater _heater;
+        public ITempSensor _tempSensor;
+        public  IHeater _heater;
 
         public ECS(int thr)
         {
             SetThreshold(thr);
-            _tempSensor = new TempSensor();
-            _heater = new Heater();
+            _heater = new Heater;
+            _tempSensor = new TempSensor
         }
 
         public void Regulate()
