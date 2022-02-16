@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECS.Legacy", "ECS.Legacy\ECS.Legacy.csproj", "{04BB7A61-C926-4654-A911-EA7EAE974326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECS_DesignedForTestability", "ECS_DesignedForTestability\ECS_DesignedForTestability.csproj", "{82CE8B1D-64B3-4C4B-B4B6-3ABE149B5B4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECS_DesignedForTestability", "ECS_DesignedForTestability\ECS_DesignedForTestability.csproj", "{82CE8B1D-64B3-4C4B-B4B6-3ABE149B5B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECSRefactorUnitTests", "ECSRefactorUnitTests\ECSRefactorUnitTests.csproj", "{EAAB09CE-88A0-410C-8AF3-F62FD9398157}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{82CE8B1D-64B3-4C4B-B4B6-3ABE149B5B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82CE8B1D-64B3-4C4B-B4B6-3ABE149B5B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82CE8B1D-64B3-4C4B-B4B6-3ABE149B5B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAAB09CE-88A0-410C-8AF3-F62FD9398157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAAB09CE-88A0-410C-8AF3-F62FD9398157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAAB09CE-88A0-410C-8AF3-F62FD9398157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAAB09CE-88A0-410C-8AF3-F62FD9398157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
