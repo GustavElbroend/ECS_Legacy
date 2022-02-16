@@ -5,8 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="C:\Users\Bruger\source\repos\ECS_Legacy.cs" Link="ECS_Legacy.cs" />
-  </ItemGroup>
-
 </Project>
