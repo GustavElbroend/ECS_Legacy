@@ -29,7 +29,7 @@ namespace ECSRefactorUnitTests
             _uut.Regulate();
             Assert.That(_heater._heaterOn, Is.EqualTo(exp));
         }
-
+        //Vi bygger det nu
         [TestCase(10)]
         [TestCase(1)]
         [TestCase(22)]
