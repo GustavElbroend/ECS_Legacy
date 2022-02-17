@@ -15,14 +15,14 @@ namespace ECS_DesignedForTestability
         public ECS(int thr)
         {
             SetThreshold(thr);
-            _heater = new Heater;
-            _tempSensor = new TempSensor
+            _heater = new Heater();
+            _tempSensor = new TempSensor();
         }
 
         public void Regulate()
         {
             var t = _tempSensor.GetTemp();
-            Console.WriteLine($"Temperatur measured was {t}");
+            Console.WriteLine($"Temperature measured was {t}");
             if (t < _threshold)
                 _heater.TurnOn();
             else

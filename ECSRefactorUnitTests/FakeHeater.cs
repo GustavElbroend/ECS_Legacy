@@ -9,7 +9,7 @@ namespace ECSRefactorUnitTests
 {
     public class FakeHeater : IHeater
     {
-        public bool _heaterOn = false;
+        public bool _heaterOn { get; set; }
 
         public void TurnOn()
         {

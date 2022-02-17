@@ -10,10 +10,15 @@ namespace ECSRefactorUnitTests
 {
     public class FakeTempSensor : ITempSensor
     {
-        public int Temp { get; set; }
+        private int _temp;
+
+        public FakeTempSensor(int temp)
+        {
+            _temp = temp;
+        }
         public int GetTemp()
         {
-            return Temp;
+            return _temp;
         }
 
         public bool RunSelfTest()
