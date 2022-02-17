@@ -9,25 +9,48 @@ namespace ECS_DesignedForTestability
     public class ECS
     {
         private int _threshold;
+        private int _windowThreshold;
         public ITempSensor _tempSensor { private get; set; }
         public  IHeater _heater { private get; set; }
+        public IWindow _window { private get; set; }
 
-        public ECS(int thr)
+        public ECS(int thr, int windowThreshold)
         {
             SetThreshold(thr);
+            SetWindowThreshold(windowThreshold);
+            _window = new Window();
             _heater = new Heater();
             _tempSensor = new TempSensor();
         }
 
         public void Regulate()
         {
-            var t = _tempSensor.GetTemp();
-            Console.WriteLine($"Temperature measured was {t}");
-            if (t < _threshold)
-                _heater.TurnOn();
-            else
-                _heater.TurnOff();
+            if (_windowThreshold < _threshold)
+                throw new Exception("Invalid setup");
 
+            var t = _tempSensor.GetTemp();
+                Console.WriteLine($"Temperature measured was {t}");
+                if (t < _threshold)
+                    _heater.TurnOn();
+                else
+                    _heater.TurnOff();
+
+                if (t > _windowThreshold)
+                    _window.OpenWindow();
+                else
+                {
+                    _window.CloseWindow();
+                }
+        }
+        
+        public void SetWindowThreshold(int thr)
+        {
+            _windowThreshold = thr;
+        }
+
+        public int GetWindowThreshold()
+        {
+            return _windowThreshold;
         }
 
         public void SetThreshold(int thr)
