@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace ECS_DesignedForTestability
 {
@@ -13,6 +15,7 @@ namespace ECS_DesignedForTestability
         public ITempSensor _tempSensor { private get; set; }
         public  IHeater _heater { private get; set; }
         public IWindow _window { private get; set; }
+        public bool StartIsActive { get; set; }
 
         public ECS(int thr, int windowThreshold)
         {
@@ -21,6 +24,19 @@ namespace ECS_DesignedForTestability
             _window = new Window();
             _heater = new Heater();
             _tempSensor = new TempSensor();
+            StartIsActive = true;
+        }
+
+        public void Run()
+        {
+            while (true)
+            {
+                while (StartIsActive)
+                {
+                    Regulate();
+                    Thread.Sleep(1000);
+                }
+            }
         }
 
         public void Regulate()

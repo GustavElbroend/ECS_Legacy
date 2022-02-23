@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace ECS_DesignedForTestability
 {
@@ -13,6 +14,10 @@ namespace ECS_DesignedForTestability
             // Make an ECS with a threshold of 23
             var control = new ECS(23, 28);
 
+            Thread ECSThread = new Thread(control.Run);
+            ECSThread.IsBackground = true;
+            ECSThread.Start();
+
             bool terminate = true;
             while (terminate)
             {
@@ -20,17 +25,15 @@ namespace ECS_DesignedForTestability
 
                 if (key.KeyChar == 'n')
                 {
+                    control.StartIsActive = false;
                     Console.WriteLine("First set the threshold for the heater, then the threshold for det window:");
                     control.SetThreshold(Convert.ToInt32(Console.ReadLine()));
                     control.SetWindowThreshold(Convert.ToInt32(Console.ReadLine()));
+                    control.StartIsActive = true;
                 }
 
                 if (key.KeyChar == 'x')
                     terminate = false;
-
-
-                control.Regulate();
-                System.Threading.Thread.Sleep(1000);
             }
 
             /*
