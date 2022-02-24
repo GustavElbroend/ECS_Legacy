@@ -8,6 +8,7 @@ namespace ECSRefactorUnitTests
         private ECS _uut;
         private FakeTempSensor _tempSensor;
         private FakeHeater _heater;
+        private IWindow _window;
         [SetUp]
         public void Setup()
         {
@@ -20,7 +21,7 @@ namespace ECSRefactorUnitTests
         [TestCase(15, 17, true)]
         public void TestOfRegulateWhereHeaterStateIsAsExpected(int temp, int threshold, bool exp)
         {
-            _uut = new ECS(threshold, 45);
+            _uut = new ECS(threshold, 45, _heater, _tempSensor, _window);
             _heater = new FakeHeater();
             _uut._heater = _heater;
             _tempSensor = new FakeTempSensor(temp);
@@ -37,7 +38,7 @@ namespace ECSRefactorUnitTests
         [TestCase(18)]
         public void TestCorrectSetThreshold(int threshold)
         {
-            _uut = new ECS(threshold, 45);
+            _uut = new ECS(threshold, 45,_heater,_tempSensor, _window);
 
             
             Assert.That(_uut.GetThreshold(), Is.EqualTo(threshold));

@@ -17,13 +17,13 @@ namespace ECS_DesignedForTestability
         public IWindow _window { private get; set; }
         public bool StartIsActive { get; set; }
 
-        public ECS(int thr, int windowThreshold)
+        public ECS(int thr, int windowThreshold, IHeater heater, ITempSensor tempSensor, IWindow window)
         {
             SetThreshold(thr);
             SetWindowThreshold(windowThreshold);
-            _window = new Window();
-            _heater = new Heater();
-            _tempSensor = new TempSensor();
+            _window = window;
+            _heater = heater;
+            _tempSensor = tempSensor;
             StartIsActive = true;
         }
 

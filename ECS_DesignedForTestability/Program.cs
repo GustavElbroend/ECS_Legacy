@@ -7,12 +7,16 @@ namespace ECS_DesignedForTestability
     {
         static void Main(string[] args)
         {
+            IHeater heater = new Heater();
+            ITempSensor tempSensor = new TempSensor();
+            IWindow window = new Window();
+
             Console.WriteLine("Testing ECS.Legacy");
             Console.WriteLine("Type 'n' for new values");
             Console.WriteLine("Type 'x' to exit");
 
             // Make an ECS with a threshold of 23
-            var control = new ECS(23, 28);
+            var control = new ECS(23, 28, heater, tempSensor, window);
 
             Thread ECSThread = new Thread(control.Run);
             ECSThread.IsBackground = true;
