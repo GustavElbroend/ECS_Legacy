@@ -22,7 +22,7 @@ namespace ECSRefactorUnitTests
         {
             _heater = Substitute.For<IHeater>();
             _tempSensor = Substitute.For<ITempSensor>();
-            _window = Substitute.For<IWindow>();
+            _window = Substitute.For<IWindow>(); 
         }
 
         [TestCase(5, 10, true)]
