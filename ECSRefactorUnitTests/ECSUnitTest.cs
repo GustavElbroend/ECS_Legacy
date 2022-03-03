@@ -21,12 +21,13 @@ namespace ECSRefactorUnitTests
         [TestCase(15, 17, true)]
         public void TestOfRegulateWhereHeaterStateIsAsExpected(int temp, int threshold, bool exp)
         {
-            _uut = new ECS(threshold, 45, _heater, _tempSensor, _window);
             _heater = new FakeHeater();
-            _uut._heater = _heater;
             _tempSensor = new FakeTempSensor(temp);
-            _uut._tempSensor = _tempSensor;
+            _window = new Window();
 
+            _uut = new ECS(threshold, 45, _heater, _tempSensor, _window);
+            _uut._heater = _heater;
+            _uut._tempSensor = _tempSensor;
             _uut.Regulate();
             Assert.That(_heater._heaterOn, Is.EqualTo(exp));
         }
